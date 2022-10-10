@@ -9,7 +9,7 @@
 </script>
 
 <div class="w-full fixed h-[50px] ">
-	<div class="w-full fixed flex items-center mx-auto lg:px-6 py-3 px-3 justify-between flex-wrap">
+	<div class="w-full max-w-[1224px] flex items-center mx-auto lg:px-6 lg:py-5 py-3 px-3 justify-between flex-wrap">
 		<div class="flex gap-3 items-center">
 			<div class="flex flex-col gap-2 lg:hidden">
 				<div class="border-[2px] rounded border-[#EFEEE0] w-4" />
@@ -23,8 +23,8 @@
             </button>
 			<input type="text" name="" id="" class="bg-[#1D2123] text-white outline-none px-3 rounded hidden lg:block w-full" placeholder="Search artists">
 		</form>
-		<div class="w-[340px] lg:w-[100px] lg:bg-transparent mt-3 gap-9 flex flex-col p-10 rounded-lg bg-[#1A1E1F] h-[500px]">
-			<div class="flex flex-col gap-8 items-center rounded-[32px]     justify-center lg:w-[52px] lg:h-[230px] lg:bg-[#1A1E1F]
+		<div class="w-[340px]  lg:w-[100px] hidden lg:items-start lg:bg-transparent mt-3 gap-9 lg:flex flex-col p-10 lg:pl-0 rounded-lg bg-[#1A1E1F] h-[800px]">
+			<div class="flex flex-col gap-8 lgitems-center rounded-[32px]     justify-center lg:w-[52px] lg:h-[230px] lg:bg-[#1A1E1F]
 			 ">
 				<a class="gap-4 flex items-center font-bold text-lg text-center text-white" href="/">
 					<Home size="25" variant="Bold" color="#FACD66" />
@@ -43,11 +43,11 @@
 					<p>Music Videos</p>
 				</a> 
 			</div>
-			<div class="lg:w-">
+			<div class="lg:w-[52px] lg:h-[127px] bg-[#1A1E1F] lg:items-center justify-center gap-9 rounded-[32px] flex flex-col">
 				<a class="gap-4 opacity-20 flex items-center font-bold text-lg text-center text-white" href="/">
 				<ProfileRemove size="25" variant="Bold" color="white" />
 				<p>Profile</p>
-			</a>
+			     </a>
 			<a class="gap-4 opacity-20 flex items-center font-bold text-lg text-center text-white" href="/">
 				<Logout1 size="25" variant="Bold" color="white" />
 				<p>Log out</p>
@@ -62,6 +62,9 @@
 
 	p{
 		font-family: 'Quicksand', sans-serif;
+	}
+	.ham-btn:nth-child(1){
+		scale: .5;
 	}
 
 	@media screen and (min-width: 1024px) {
