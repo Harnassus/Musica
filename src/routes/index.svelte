@@ -4,13 +4,13 @@
 <div class="mt-[6em] flex flex-col w-full items-center justify-center text-white">
 	<div>
 		<div class="w-[367px] h-[503px] bg-[#609EAF] rounded-[20px] flex flex-col">
-			<div class="w-full flex">
+			<div class="w-full flex h-[60%]">
 				<div class="pt-9 ml-5 w-[50%]">
 					<p class="text-sm w-full">Curated playlist</p>
 				</div>
-				<img src="/assets/Vector.svg" class="w-[100%]" alt="" />
+				<img src="/assets/Vector.svg" class="w-[240px]  h-[400px]" alt="a wavy svg for aesthetics" />
 			</div>
-			<div class="w-full px-5">
+			<div class="w-full px-5 flex flex-col gap-[2.5em]">
 				<div>
 					<h1 class="font-bold text-4xl">R & B Hits</h1>
 					<p class="text-[14px] leading-[17px] w-[276px] h-[51px]">
@@ -18,8 +18,12 @@
 						much more
 					</p>
 				</div>
-                <div>
-                    
+                <div class="flex items-center gap-4">
+                    <img src="/assets/Avatars.png" alt="avatars of random people joined together">
+                    <img src="assets/icons/Heart.svg" alt="an icon of a heart white in color">
+                    <p class="text-2xl">
+                        33k Likes
+                    </p>
                 </div>
 			</div>
 		</div>
