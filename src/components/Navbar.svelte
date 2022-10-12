@@ -29,19 +29,19 @@
 		navList.forEach((link) => {
 			if (link.pathname === activePage) {
 				// console.log(activePage, $page.url.pathname, link);
-				link.classList.add('opacity-100')
+				link.style.opacity = 1;
 				let children = link.firstChild.childNodes;
 				children.forEach((c) =>{
 					c.attributes.fill.nodeValue = '#FACD66';
 				})
 			}
-
+ 
 		})
 	});
 </script>
 
-<div class="w-full fixed h-[100px] top-0 left-0">
-	<div class="w-full flex items-start mx-auto lg:px-6 lg:py-5 py-3 px-3 justify-between flex-col">
+<div class="w-full fixed h-[100px] z-[10] top-0 left-0 lg:px-6 lg:py-5 py-4 px-5 ">
+	<div class="w-full flex items-start mx-auto justify-between flex-col">
 		<div class="flex gap-[9em] w-full">
 			<div class="flex gap-6 mr-auto lg:mr-0 items-center">
 				<button class="flex flex-col gap-2 lg:hidden ham-btn" bind:this={menuButton}>
@@ -52,7 +52,7 @@
 			</div>
 			<form action="" class="flex lg:w-[80%] items-center gap-3 opacity-20">
 				<button class="flex text-white">
-					<Magnify class="icon" height="30px" width="30px" />
+					<Magnify height="30px" width="30px" />
 				</button>
 				<input
 					type="text"
