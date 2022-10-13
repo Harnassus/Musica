@@ -10,20 +10,22 @@
 	import { page } from '$app/stores';
 
 	let menu;
+	let overlay;
 	let menuButton;
 	let menuShown = true;
 
 	onMount(() => {
-		menuButton.addEventListener('click', function () {
-			menuShown === true
-				? ((menuShown = false),
-				  (menu.style.transform = 'translateX(0%)'),
-				  (menu.style.display = 'flex'),
-				  console.log(menuShown))
-				: ((menuShown = true),
-				  (menu.style.transform = 'translateX(-350%)'),
-				  (menu.style.display = 'none'));
+		menuButton.addEventListener('click', function (e) {
+			menu.style.transform = 'translateX(-5%)';
+			overlay.style.transform = 'translateX(0%)';
+			
 		});
+
+		overlay.onclick = function () {
+			menu.style.transform = 'translateX(-350%)';
+			overlay.style.transform = 'translateX(-350%)';
+		};
+
 		const activePage = $page.url.pathname;
 		let navList = document.querySelectorAll('nav a');
 		navList.forEach((link) => {
@@ -31,16 +33,15 @@
 				// console.log(activePage, $page.url.pathname, link);
 				link.style.opacity = 1;
 				let children = link.firstChild.childNodes;
-				children.forEach((c) =>{
+				children.forEach((c) => {
 					c.attributes.fill.nodeValue = '#FACD66';
-				})
+				});
 			}
- 
-		})
+		});
 	});
 </script>
 
-<div class="w-full fixed h-[100px] z-[10] top-0 left-0 lg:px-6 lg:py-5 py-4 px-5 ">
+<div class="w-[100vh] fixed h-[100px] z-[10] top-0 left-0 lg:px-6 lg:py-5 py-4 px-5 ">
 	<div class="w-full flex items-start mx-auto justify-between flex-col">
 		<div class="flex gap-[9em] w-full">
 			<div class="flex gap-6 mr-auto lg:mr-0 items-center">
@@ -63,15 +64,24 @@
 				/>
 			</form>
 		</div>
+
+		<div
+			bind:this={overlay}
+			class="lg:hidden translate-x-[-300%] h-[100vh] w-[100vw] absolute top-0 left-0 z-[1] bg-black opacity-30"
+		/>
+
 		<div
 			bind:this={menu}
-			class="w-[350px] hidden transition-all ease-in lg:w-[100px] lg:items-start lg:bg-transparent mt-3 gap-2 lg:flex flex-col p-10 lg:pl-0 rounded-lg bg-[#1A1E1F] h-[800px]"
+			class="lg:translate-x-[0%] w-[350px] absolute top-0 left-0 z-[10] transition-all translate-x-[-300%] ease-out lg:w-[100px] lg:items-start lg:bg-transparent gap-10 lg:flex flex-col py-[5em] px-[4em] lg:pl-0 rounded-lg bg-[#1A1E1F] h-[100vh]"
 		>
 			<nav
-				class="flex flex-col gap-8 lg:items-center rounded-[32px]     justify-center lg:w-[52px] lg:h-[230px] lg:bg-[#1A1E1F]
+				class="flex flex-col gap-10 lg:items-center rounded-[32px]     justify-center lg:w-[52px] lg:h-[230px] lg:bg-[#1A1E1F]
 			 "
 			>
-				<a class="opacity-20 gap-4 flex items-center font-bold text-lg text-center text-white" href="/">
+				<a
+					class="opacity-20 gap-4 flex items-center font-bold text-lg text-center text-white"
+					href="/"
+				>
 					<Home size="25" variant="Bold" color="white" />
 					<p>Home</p>
 				</a>
@@ -133,10 +143,10 @@
 		display: flex;
 		transform: translateX(350%);
 	}
-	.active{
+	.active {
 		opacity: 0;
 	}
-	.icon{
+	.icon {
 		color: black;
 	}
 
