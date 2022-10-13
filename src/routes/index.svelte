@@ -2,7 +2,7 @@
 </script>
 
 <div class="mt-[6em] flex flex-col w-full items-center justify-center text-white">
-	<div>
+	<div class="flex flex-col gap-10 items-start">
 		<div class="w-[367px] h-[503px] bg-[#609EAF] rounded-[20px] flex flex-col">
 			<div class="w-full flex h-[60%]">
 				<div class="pt-9 ml-5 w-[50%]">
@@ -27,6 +27,9 @@
                 </div>
 			</div>
 		</div>
+        <div>
+            <h3 class="text-xl font-bold">Top charts</h3>
+        </div>
 	</div>
 </div>
 
