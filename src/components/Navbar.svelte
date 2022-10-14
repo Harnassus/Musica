@@ -16,8 +16,7 @@
 
 	onMount(() => {
 		menuButton.addEventListener('click', function (e) {
-			menu.style.transform = 'translateX(-5%)';
-			overlay.style.transform = 'translateX(0%)';
+			
 			
 		});
 
