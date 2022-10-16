@@ -1,11 +1,12 @@
 <script>
 	import axios from 'axios';
 	import { onMount } from 'svelte';
+	import Chart from '../components/Chart.svelte';
 	import { Credentials } from './credentials.js';
 
 	const spotify = Credentials();
 	let token;
-	let topPlaylists;
+	let topPlaylists = []
 
 	function getToken() {
 		axios('https://accounts.spotify.com/api/token', {
@@ -18,6 +19,14 @@
 		})
 			.then((tokenResponse) => {
 				token = tokenResponse.data.access_token;
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
+	onMount(() => {
+		getToken();
+		console.log(topPlaylists);
 
 				axios('https://api.spotify.com/v1/browse/featured-playlists', {
 					headers: { Authorization: 'Bearer ' + token },
@@ -25,13 +34,9 @@
 				}).then((res) => {
 					console.log(res.data.playlists.items);
 					topPlaylists = res.data.playlists.items
-				})
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	}
-	getToken()
+				}).catch((err) => {console.log(err);})
+	})
+	
 </script>
 
 <div class="mt-[6em] flex flex-col w-full items-center justify-center text-white">
@@ -65,8 +70,9 @@
 		<div>
 			<h3 class="text-xl font-bold">Top charts</h3>
 			<div>
-				<!-- {#each topPlaylist as playlist }
-				{/each} -->
+				{#each topPlaylists as playlist }
+				<Chart {playlist} />
+				{/each}
 			</div>
 		</div>
 	</div>
