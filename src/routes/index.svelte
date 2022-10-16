@@ -1,22 +1,35 @@
 <script>
-	import axios from 'axios'
-	import { Credentials } from "./credentials.js";
+	import axios from 'axios';
+	import { onMount } from 'svelte';
+	import { Credentials } from './credentials.js';
 
 	const spotify = Credentials();
-	
+	let token;
+	let topPlaylists;
+
 	function getToken() {
 		axios('https://accounts.spotify.com/api/token', {
-
 			method: 'POST',
-			 headers: {
-                'Content-Type' : 'application/x-www-form-urlencoded',
-                'Authorization' : 'Basic ' + btoa(spotify.clientId + ":" + spotify.clientSecret)
-            },
-			 data: 'grant_type=client_credentials'
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded',
+				Authorization: 'Basic ' + btoa(spotify.clientId + ':' + spotify.clientSecret)
+			},
+			data: 'grant_type=client_credentials'
 		})
-		.then(tokenResponse => {
-			console.log(tokenResponse.data.access_token);
-		})
+			.then((tokenResponse) => {
+				token = tokenResponse.data.access_token;
+
+				axios('https://api.spotify.com/v1/browse/featured-playlists', {
+					headers: { Authorization: 'Bearer ' + token },
+					method: 'GET'
+				}).then((res) => {
+					console.log(res.data.playlists.items);
+					topPlaylists = res.data.playlists.items
+				})
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	}
 	getToken()
 </script>
@@ -28,7 +41,11 @@
 				<div class="pt-9 ml-5 w-[50%]">
 					<p class="text-sm w-full">Curated playlist</p>
 				</div>
-				<img src="/assets/Vector.svg" class="w-[240px]  h-[400px]" alt="a wavy svg for aesthetics" />
+				<img
+					src="/assets/Vector.svg"
+					class="w-[240px]  h-[400px]"
+					alt="a wavy svg for aesthetics"
+				/>
 			</div>
 			<div class="w-full px-5 flex flex-col gap-[2.5em]">
 				<div>
@@ -38,18 +55,20 @@
 						much more
 					</p>
 				</div>
-                <div class="flex items-center gap-4">
-                    <img src="/assets/Avatars.png" alt="avatars of random people joined together">
-                    <img src="assets/icons/Heart.svg" alt="an icon of a heart white in color">
-                    <p class="text-2xl">
-                        33k Likes
-                    </p>
-                </div>
+				<div class="flex items-center gap-4">
+					<img src="/assets/Avatars.png" alt="avatars of random people joined together" />
+					<img src="assets/icons/Heart.svg" alt="an icon of a heart white in color" />
+					<p class="text-2xl">33k Likes</p>
+				</div>
 			</div>
 		</div>
-        <div>
-            <h3 class="text-xl font-bold">Top charts</h3>
-        </div>
+		<div>
+			<h3 class="text-xl font-bold">Top charts</h3>
+			<div>
+				<!-- {#each topPlaylist as playlist }
+				{/each} -->
+			</div>
+		</div>
 	</div>
 </div>
 
