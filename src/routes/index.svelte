@@ -2,8 +2,8 @@
 	import axios from 'axios'
 	import { Credentials } from "./credentials.js";
 
-	const spotify = Credentials()
-
+	const spotify = Credentials();
+	
 	function getToken() {
 		axios('https://accounts.spotify.com/api/token', {
 
@@ -15,7 +15,7 @@
 			 data: 'grant_type=client_credentials'
 		})
 		.then(tokenResponse => {
-			console.log(tokenResponse.data.access.token);
+			console.log(tokenResponse.data.access_token);
 		})
 	}
 	getToken()
