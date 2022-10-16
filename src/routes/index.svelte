@@ -1,4 +1,24 @@
 <script>
+	import axios from 'axios'
+	import { Credentials } from "./credentials.js";
+
+	const spotify = Credentials()
+
+	function getToken() {
+		axios('https://accounts.spotify.com/api/token', {
+
+			method: 'POST',
+			 headers: {
+                'Content-Type' : 'application/x-www-form-urlencoded',
+                'Authorization' : 'Basic ' + btoa(spotify.clientId + ":" + spotify.clientSecret)
+            },
+			 data: 'grant_type=client_credentials'
+		})
+		.then(tokenResponse => {
+			console.log(tokenResponse.data.access.token);
+		})
+	}
+	getToken()
 </script>
 
 <div class="mt-[6em] flex flex-col w-full items-center justify-center text-white">
