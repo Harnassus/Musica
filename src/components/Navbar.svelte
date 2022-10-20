@@ -87,7 +87,7 @@
 				</a>
 				<a
 					class="gap-4 opacity-20 flex items-center font-bold text-lg text-center text-white"
-					href="/collections"
+					href="/home"
 				>
 					<MusicPlaylist size="25" variant="Bold" color="white" />
 					<p>My Collections</p>
