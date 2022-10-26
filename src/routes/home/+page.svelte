@@ -1,1 +1,4 @@
-<h1>Hi</h1>
+<script>
+	export let data;
+    console.log(data);
+</script>
