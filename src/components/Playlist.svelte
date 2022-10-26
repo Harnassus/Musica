@@ -1,11 +1,9 @@
 <script>
 	export let playlist;
-
-	console.log(playlist);
 </script>
 
 <div class="shrink-0 grow-0  w-[323px] h-[233px] bg-[#1A1E1F] rounded-[20px] px-4 py-4">
-	<a href={playlist.href} class="flex justify-between">
+	<a href={`/playlist/${playlist.id}`} class="flex justify-between">
 		<section class="h-full flex flex-col gap-3">
 			<img src={playlist.images[0].url} class="h-[99px] w-[109px] object-cover" alt="" />
 			<section class="flex flex-col gap-2">
