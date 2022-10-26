@@ -35,7 +35,9 @@
 		</div>
 		<div class="flex flex-col w-[376px] gap-5">
 			<h3 class="text-2xl font-bold">Top charts</h3>
-			<div class=" items-center flex-nowrap w-screen flex overflow-x-scroll scroll-p-[24px] gap-[12px] snap-x">
+			<div
+				class="playlist-container items-center flex-nowrap w-screen flex overflow-x-scroll scroll-p-[24px] gap-[12px] snap-x"
+			>
 				{#each playlists as playlist}
 					<Playlist {playlist} />
 				{/each}
@@ -48,7 +50,15 @@
 	@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
 
 	p,
-	h1, h3 {
+	h1,
+	h3 {
 		font-family: 'Quicksand', sans-serif;
+	}
+	.playlist-container::-webkit-scrollbar {
+		display: none;
+	}
+	.playlist-container {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
 	}
 </style>
