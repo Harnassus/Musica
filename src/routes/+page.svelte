@@ -1,10 +1,12 @@
 <script>
+	import Playlist from '../components/Playlist.svelte';
+
 	export let data;
-console.log(data)
+	const { playlists, newReleases, popular } = data;
 </script>
 
 <div class="mt-[6em] flex flex-col w-full items-center justify-center text-white">
-	<div class="flex flex-col gap-10 items-start">
+	<div class="flex flex-col gap-10 items-center justify-center ">
 		<div class="w-[367px] h-[503px] bg-[#609EAF] rounded-[20px] flex flex-col">
 			<div class="w-full flex h-[60%]">
 				<div class="pt-9 ml-5 w-[50%]">
@@ -31,24 +33,22 @@ console.log(data)
 				</div>
 			</div>
 		</div>
-		<div>
-			<h3 class="text-xl font-bold">Top charts</h3>
-			<!-- <div>
-				{#each topPlaylists as playlist }
-				<Chart {playlist} />
+		<div class="flex flex-col w-[376px] gap-5">
+			<h3 class="text-2xl font-bold">Top charts</h3>
+			<div class=" items-center flex-nowrap w-screen flex overflow-x-scroll scroll-p-[24px] gap-[12px] snap-x">
+				{#each playlists as playlist}
+					<Playlist {playlist} />
 				{/each}
-			</div> -->
-			<!-- <div>{accessToken}</div> -->
+			</div>
 		</div>
 	</div>
 </div>
 
 <style>
-
 	@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
 
 	p,
-	h1 {
+	h1, h3 {
 		font-family: 'Quicksand', sans-serif;
 	}
 </style>
