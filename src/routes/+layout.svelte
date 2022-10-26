@@ -4,10 +4,7 @@
 </script>
 
 <Navbar />
-<main class="">
-	
-	<slot />
-</main>
+<slot />
 
 <style>
 </style>

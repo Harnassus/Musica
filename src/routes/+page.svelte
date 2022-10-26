@@ -1,22 +1,6 @@
 <script>
-	import axios from 'axios';
-	import { onMount } from 'svelte';
-	// import Chart from '../components/TopChartsCard.svelte';
-	
-	import {getPlaylist} from "../services/apiController.js";
-	
-	const spotify = getPlaylist();
-	let token;
-	let topPlaylists = []
-	
-	onMount(() => {
-		console.log(spotify);
-		
-		console.log(spotify.playlist);
-        // console.log(getToken(), accessToken);
-				
-	})
-	
+	export let data;
+console.log(data)
 </script>
 
 <div class="mt-[6em] flex flex-col w-full items-center justify-center text-white">

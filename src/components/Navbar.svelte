@@ -8,12 +8,16 @@
 	import Logout1 from 'iconsax-svelte/Logout1.svelte';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
+	import {browser} from "$app/environment"
 
 	let menu;
 	let overlay;
 	let menuButton;
 	let menuShown = true;
-
+	if (browser) {
+		console.log(document);
+	}
+	
 	onMount(() => {
 		menuButton.addEventListener('click', function (e) {
 			menu.style.transform = 'translateX(-5%)';
@@ -96,7 +100,7 @@
 					class="gap-4 opacity-20 flex items-center font-bold text-lg text-center text-white"
 					href="/radio"
 				>
-					<Radio size="25" variant="Bold" color="white" />
+					<Radio class="fill-red" size="25" variant="Bold" color="white" />
 					<p>Radio</p>
 				</a>
 				<a
@@ -149,6 +153,7 @@
 	.icon {
 		color: black;
 	}
+	.fill-red { fill: black; }
 
 	@media screen and (min-width: 1024px) {
 		p {
