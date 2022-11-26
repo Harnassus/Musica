@@ -2,7 +2,7 @@
 	import Playlist from '../components/Playlist.svelte';
 
 	export let data;	
-	const { playlists, newReleases, popular } = data;
+	const { playlists, newReleases, popular, token } = data;
 	
 	for (let i = 0; i < playlists.length; i++) {
 		if (playlists[i] === null) {
@@ -11,10 +11,10 @@
 		
 	}
 
-	console.log(playlists);
+	console.log(data);
 </script>
 
-<div class="mt-[6em]  flex flex-col w-full items-center justify-center text-white">
+<div class="mt-[6em] flex  flex-col w-full items-center justify-center text-white">
 	<div class="flex flex-col gap-10 items-center justify-center ">
 		<div class="w-[367px] h-[503px] bg-[#609EAF] rounded-[20px] flex flex-col">
 			<div class="w-full flex h-[60%]">
