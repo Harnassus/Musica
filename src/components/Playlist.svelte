@@ -1,16 +1,17 @@
 <script>
 	export let playlist;
+	
 </script>
 
-<div class="shrink-0 grow-0  w-[323px] h-[233px] bg-[#1A1E1F] rounded-[20px] px-4 py-4">
-	<a href={`/playlist/${playlist.id}`} class="flex justify-between">
+<div class="shrink-0 grow-0  w-full h-[233px] bg-[#1A1E1F] rounded-[20px] px-4 py-4">
+	<a href={`/playlist/${playlist?.id}`} class="flex justify-between">
 		<section class="h-full flex flex-col gap-3">
-			<img src={playlist.images[0].url} class="h-[99px] w-[109px] object-cover" alt="" />
+			<img src={playlist?.images[0]?.url} class="h-[99px] w-[109px] object-cover" alt="" />
 			<section class="flex flex-col gap-2">
-				<h2 class="text-lg">{playlist.name}</h2>
-				<p class="text-xs opacity-20">{playlist.owner.display_name}</p>
+				<h2 class="text-lg">{playlist?.name}</h2>
+				<p class="text-xs opacity-20">{playlist?.owner?.display_name}</p>
 			</section>
-			<p>{playlist.tracks.total} songs</p>
+			<p>{playlist?.tracks?.total} songs</p>
 		</section>
 		<section
 			class="w-[37px] h-[37px] rounded-[50%] border flex items-center justify-center border-[#FFFFFF1C]"
@@ -46,10 +47,9 @@
 
 <style>
 	img {
-		background: url(1f67d3cc-aa53-47f5-ae7c-3670f44dc667.jpg);
+		/* background: url(1f67d3cc-aa53-47f5-ae7c-3670f44dc667.jpg); */
 		border-radius: 10px;
 	}
-
 	@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
 
 	p,
@@ -57,7 +57,7 @@
 	h3 {
 		font-family: 'Quicksand', sans-serif;
 	}
-	.playlist-container::-webkit-scrollbar {
+	/* .playlist-container::-webkit-scrollbar {
 		display: none;
-	}
+	} */
 </style>

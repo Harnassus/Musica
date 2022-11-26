@@ -1,6 +1,8 @@
 import {SECRET_CLIENT_ID, SECRET_CLIENT_SEC} from '$env/static/private'
 /** @type {import('./$types').PageServerLoad} */
+
 export const prerender = true;
+
 export const load = async () => {
 
     // Endpoints

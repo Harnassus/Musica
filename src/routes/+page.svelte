@@ -1,11 +1,20 @@
 <script>
 	import Playlist from '../components/Playlist.svelte';
 
-	export let data;
+	export let data;	
 	const { playlists, newReleases, popular } = data;
+	
+	for (let i = 0; i < playlists.length; i++) {
+		if (playlists[i] === null) {
+			playlists.splice(i, 1);
+		}
+		
+	}
+
+	console.log(playlists);
 </script>
 
-<div class="mt-[6em] flex flex-col w-full items-center justify-center text-white">
+<div class="mt-[6em]  flex flex-col w-full items-center justify-center text-white">
 	<div class="flex flex-col gap-10 items-center justify-center ">
 		<div class="w-[367px] h-[503px] bg-[#609EAF] rounded-[20px] flex flex-col">
 			<div class="w-full flex h-[60%]">
@@ -34,7 +43,7 @@
 			</div>
 		</div>
 		<div class="flex flex-col w-[376px] gap-5">
-			<h3 class="text-2xl font-bold">Top charts</h3>
+			<h3 class="text-2xl font-bold pl-3">Top charts</h3>
 			<div
 				class="playlist-container items-center flex-nowrap w-screen flex overflow-x-scroll scroll-p-[24px] gap-[12px] snap-x"
 			>
